@@ -4,7 +4,8 @@ using System.IO.Ports;
  
 public class SerialManager // : MonoBehaviour
 {
-    SerialPort mbed = new SerialPort("/dev/cu.usbmodem14103", 9600);
+    private static String port;
+    private SerialPort mbed;
     private static SerialManager instance;
     
     public static SerialManager Instance
@@ -27,6 +28,8 @@ public class SerialManager // : MonoBehaviour
     
     public void Init()
     {
+        port = "/dev/cu.usbmodem14103";
+        this.mbed = new SerialPort(port, 9600);
         this.mbed.ReadTimeout = 50;
         this.mbed.Open();
         Debug.Log("スタート");
@@ -46,7 +49,7 @@ public class SerialManager // : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("できてる！");
+            
         }
         
     }

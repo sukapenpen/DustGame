@@ -9,30 +9,51 @@ public enum GameState
     Play
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     private static GameState currentGamestate;
 
     private void Awake()
     {
-        
+        SerialManager.Instance.Init();
     }
     
     private void Start()
     {
-        SerialManager.Instance.Init();
     }
 
-    private void Update()
+    public void Update()
     {
-        SerialManager.Instance.Run();
-        switch (hideFlags)
+        switch (currentGamestate)
         {
-                
+            case GameState.Title:
+                Instance.TitleAction();
+                break;
+            case GameState.Load:
+                Instance.LoadAction();
+                break;
+            case GameState.Play:
+                Instance.PlayAction();
+                break;
         }
     }
 
-    private void MakeDust()
+    public void TitleAction()
+    {
+        SerialManager.Instance.Run();
+    }
+
+    public void LoadAction()
+    {
+        Debug.Log("ロードアクション");
+    }
+
+    public void PlayAction()
+    {
+        Debug.Log("プレイ中のアクション");
+    }
+
+    public void MakeDust()
     {
         //SerialManager.Instance.
     }
