@@ -16,19 +16,23 @@ public class DustBox : MonoBehaviour
 	{
 		if (Input.GetKey("up"))
 		{
-			transform.position += transform.forward * speed * Time.deltaTime;
+			Vector3 pos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + speed * Time.deltaTime);
+			this.transform.position = pos;
 		}
 		if (Input.GetKey("down"))
 		{
-			transform.position -= transform.forward * speed * Time.deltaTime;
+			Vector3 pos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - speed * Time.deltaTime);
+			this.transform.position = pos;
 		}
 		if (Input.GetKey("right"))
 		{
-			transform.position += transform.right * speed * Time.deltaTime;
+			Vector3 pos = new Vector3(this.transform.position.x + speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
+			this.transform.position = pos;
 		}
 		if (Input.GetKey("left"))
 		{
-			transform.position -= transform.right * speed * Time.deltaTime;
+			Vector3 pos = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
+			this.transform.position = pos;
 		}
 	}
 }

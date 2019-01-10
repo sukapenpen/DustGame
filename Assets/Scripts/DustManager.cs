@@ -1,28 +1,23 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class DustManager : MonoBehaviour
+public class DustManager : SingletonMonoBehaviour<DustManager>
 {
 	public GameObject DustPrefab;
-	public int DustCount = 10;
-	private GameObject[] dusts;
 	private int dustCount;
+	private GameObject[] dusts;
 
-	private void Awake()
+	private static DustManager instance;
+
+	public void Init()
 	{
-		dustCount = 0;
-		dusts = new GameObject[DustCount];
-		for (int i = 0; i < DustCount; i++)
-		{
-			dusts[i] = Instantiate(DustPrefab);
-			dusts[i].SetActive(false);
-		}
+		this.dustCount = 20;
+		
 	}
 
 	public void Start ()
 	{
 		StartCoroutine(AppearDust());
-		
 	}
 	
 	public void Update ()
@@ -30,9 +25,14 @@ public class DustManager : MonoBehaviour
 		
 	}
 
+	private void CreateDust()
+	{
+		for()
+	}
+
 	private IEnumerator AppearDust()
 	{
-		for (int i = 0; i < DustCount; i++)
+		for (int i = 0; i < dustCount; i++)
 		{
 			dusts[i].SetActive(true);
 			yield return new WaitForSeconds(2.0f);
