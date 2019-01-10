@@ -27,7 +27,7 @@ public class DustManager : SingletonMonoBehaviour<DustManager>
 
 	private void CreateDust()
 	{
-		for()
+		//for()
 	}
 
 	private IEnumerator AppearDust()
