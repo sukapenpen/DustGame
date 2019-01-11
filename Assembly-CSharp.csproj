@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SerialManager.cs" />
     <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\TextManager.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/ichikawatakumi/Documents/PC/DustGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
