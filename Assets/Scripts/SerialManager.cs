@@ -1,12 +1,15 @@
 ﻿using System;
 using UnityEngine;
 using System.IO.Ports;
- 
+using System.Runtime.Remoting.Messaging;
+
 public class SerialManager // : MonoBehaviour
 {
     private static String port;
-    private SerialPort mbed;
     private static SerialManager instance;
+
+    private SerialPort mbed;
+    private string message;
     
     public static SerialManager Instance
     {
@@ -37,10 +40,29 @@ public class SerialManager // : MonoBehaviour
 
     public void Run()
     {
-        ReadDistance();
+        //ReadDistance();
+        /*
+        message = ReadDistance();
+        Debug.Log(message);
+        */
     }
 
-    void ReadDistance()
+    public float ReadDistance()
+    {
+        try
+        {
+            float distance = float.Parse(this.mbed.ReadLine());
+            
+            return distance;
+        }
+        catch (Exception e)
+        {
+            return -1;
+        }
+    }
+
+    /*
+    private void ReadDistance()
     {
         try
         {
@@ -53,5 +75,6 @@ public class SerialManager // : MonoBehaviour
         }
         
     }
+    */
  
 }
