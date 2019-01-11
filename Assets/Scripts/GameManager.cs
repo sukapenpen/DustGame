@@ -12,11 +12,12 @@ public enum GameState
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     private static GameState currentGamestate;
-    private float dustDistance;
 
     private void Awake()
     {
         SerialManager.Instance.Init();
+        DustManager.Instance.Init();
+        TextManager.Instance.Init();
     }
     
     private void Start()
@@ -41,7 +42,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void TitleAction()
     {
-        DustAppearTrigger();
+        IntoDustBox();
     }
 
     private void LoadAction()
@@ -54,29 +55,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         Debug.Log("プレイ中のアクション");
     }
 
-    private void SerialInput()
+    private void IntoDustBox()
     {
-        dustDistance = SerialManager.Instance.ReadDistance();
-        Debug.Log(dustDistance);
-    }
-
-    private void DustAppearTrigger()
-    {
-        dustDistance = SerialManager.Instance.ReadDistance();
-        if (dustDistance >= 0)
+        var _dustDistance = SerialManager.Instance.ReadDistance();
+        if (_dustDistance >= 0)
         {
-            DustManager.Instance.AppearDust();
-            Debug.Log(dustDistance);
+            DustManager.Instance.AppearTitleDust();
+            Debug.Log(_dustDistance + "cm");
         }
-        else
-        {
-            Debug.Log("エラー出てるぞー！");
-        }
-    }
-
-    private void MakeDust()
-    {
-        //SerialManager.Instance.
     }
     
 }
