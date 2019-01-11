@@ -717,8 +717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122e39f3b6cea4476b1a75bb8d5ad2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustCounterPrefab: {fileID: 1360506495711260, guid: ae96744eafaf0442b94df3680ae92174,
-    type: 2}
 --- !u!4 &988665140
 Transform:
   m_ObjectHideFlags: 0
@@ -743,8 +741,8 @@ GameObject:
   - component: {fileID: 1145107075}
   - component: {fileID: 1145107074}
   m_Layer: 0
-  m_Name: Dusts are
-  m_TagString: Untagged
+  m_Name: TheNumberOfDusts
+  m_TagString: TheNumberOfDusts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920212ca118844208987058645facaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustPrefab: {fileID: 0}
+  dustPrefab: {fileID: 1510226172029124, guid: b92dd9543d4bd4b1fb7d3e40308fe9d9, type: 2}
 --- !u!4 &1326797503
 Transform:
   m_ObjectHideFlags: 0
@@ -944,6 +942,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1576037706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1689120780
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133127393489702, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 102555002812836244, guid: ae96744eafaf0442b94df3680ae92174,
+        type: 2}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360506495711260, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+      propertyPath: m_TagString
+      value: DustCounter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae96744eafaf0442b94df3680ae92174, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2052757202
 GameObject:
   m_ObjectHideFlags: 0

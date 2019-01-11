@@ -67,8 +67,14 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 
 		return null;
 	}
+
+	public void AppearTitleDust()
+	{
+		GameObject dust = SeachFalseDust();
+		dust.SetActive(true);
+	}
 	
-	public void AppearDust()
+	public void AppearPlayingDust()
 	{
 		GameObject dust = SeachFalseDust();
 		dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y, zPositions[Random.Range(0, 10)]);
