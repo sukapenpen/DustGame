@@ -41,7 +41,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void TitleAction()
     {
-        SerialInput();
+        DustAppearTrigger();
     }
 
     private void LoadAction()
@@ -65,13 +65,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         dustDistance = SerialManager.Instance.ReadDistance();
         if (dustDistance >= 0)
         {
-            Debug.Log("距離出てるぞー！ゴミ入ったぞー");
+            DustManager.Instance.AppearDust();
+            Debug.Log(dustDistance);
         }
         else
         {
             Debug.Log("エラー出てるぞー！");
         }
-        Debug.Log(dustDistance);
     }
 
     private void MakeDust()
