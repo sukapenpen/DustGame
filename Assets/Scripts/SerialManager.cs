@@ -31,7 +31,7 @@ public class SerialManager // : MonoBehaviour
     
     public void Init()
     {
-        port = "/dev/cu.usbmodem14103";
+        port = "/dev/cu.usbmodem14203";
         this.mbed = new SerialPort(port, 9600);
         this.mbed.ReadTimeout = 50;
         this.mbed.Open();
@@ -55,7 +55,7 @@ public class SerialManager // : MonoBehaviour
             
             return distance;
         }
-        catch (Exception e)
+        catch
         {
             return -1;
         }

@@ -15,6 +15,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void Awake()
     {
+        currentGamestate = GameState.Title;
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
@@ -42,7 +43,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void TitleAction()
     {
-        IntoDustBox();
+        var _dustDistance = SerialManager.Instance.ReadDistance();
+        
+        if (_dustDistance >= 0)
+        {
+            RealDustIntoDustBox();
+        }
     }
 
     private void LoadAction()
@@ -55,14 +61,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         Debug.Log("プレイ中のアクション");
     }
 
-    private void IntoDustBox()
+    private void RealDustIntoDustBox()
     {
-        var _dustDistance = SerialManager.Instance.ReadDistance();
-        if (_dustDistance >= 0)
-        {
-            DustManager.Instance.AppearTitleDust();
-            Debug.Log(_dustDistance + "cm");
-        }
+        DustManager.Instance.AppearTitleDust();
+        TextManager.Instance.AddDustCounter();
     }
     
 }

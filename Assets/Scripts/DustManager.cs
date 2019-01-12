@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 
 public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 {
-	private static GameObject[] dusts;
-	private static float[] xPositions;
-	private static float[] zPositions;
-	private static Vector2[] positions;
+	private GameObject[] dusts;
+	private float[] xPositions;
+	private float[] zPositions;
+	private Vector2[] positions;
 
 	[SerializeField]
 	private GameObject dustPrefab;
@@ -17,14 +17,15 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	
 	public void Init()
 	{
+		
 		dustCount = 20;
 		positionsCount = 10;
 		dusts = new GameObject[dustCount];
-		this.CreateDust();
-		//positions = new Vector2[positionsCount];
+		CreateDust();
 		xPositions = new float[positionsCount];
 		zPositions = new float[positionsCount];
 		CreatePosition();
+		
 	}
 
 	public void Run()
@@ -34,9 +35,10 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 
 	private void CreateDust()
 	{
-		for (int num = 0; num < dustCount; dustCount += 1)
+		for (int num = 0; num < dustCount; num += 1)
 		{
-			dusts[num] = Instantiate(this.dustPrefab);
+			dusts[num] = Instantiate(dustPrefab);
+			dusts[num].SetActive(false);
 		}
 	}
 
@@ -51,8 +53,6 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 			zPositions[num] = position;
 			position += equalPosition;
 		}
-		Debug.Log(xPositions);
-		Debug.Log(zPositions);
 	}
 
 	public GameObject SeachFalseDust()
