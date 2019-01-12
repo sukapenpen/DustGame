@@ -19,6 +19,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
+        DustBox.Instance.Init();
     }
     
     private void Start()
@@ -59,6 +60,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void PlayAction()
     {
         Debug.Log("プレイ中のアクション");
+        DustBox.Instance.Move();
     }
 
     private void RealDustIntoDustBox()

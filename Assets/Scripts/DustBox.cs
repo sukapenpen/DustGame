@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class DustBox : MonoBehaviour
+public class DustBox : SingletonMonoBehaviour<DustBox>
 {
 	private float speed = 2.0f;
 
-	public void Start ()
+	public void Init ()
 	{
 		
 	}
 	
-	public void Update ()
+	public void Move ()
 	{
 		if (Input.GetKey("up"))
 		{
@@ -33,6 +33,14 @@ public class DustBox : MonoBehaviour
 		{
 			Vector3 pos = new Vector3(this.transform.position.x - speed * Time.deltaTime, this.transform.position.y, this.transform.position.z);
 			this.transform.position = pos;
+		}
+	}
+
+	void OnCollisionEnter(Collision _object)
+	{
+		if (_object.gameObject.tag == "Dust")
+		{
+			Debug.Log("ゴミが入った！");
 		}
 	}
 }
