@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DustCounter
   - TheNumberOfDusts
+  - DustBoxBottom
   layers:
   - Default
   - TransparentFX

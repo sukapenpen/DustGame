@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 {
