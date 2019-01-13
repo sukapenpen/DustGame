@@ -15,15 +15,13 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	
 	public void Init()
 	{
-		
-		dustCount = 20;
+		dustCount = 5;
 		positionsCount = 10;
 		dusts = new GameObject[dustCount];
 		CreateDust();
 		xPositions = new float[positionsCount];
 		zPositions = new float[positionsCount];
-		CreatePosition();
-		
+		CreatePosition();	
 	}
 
 	public void Run()
@@ -37,6 +35,7 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		{
 			dusts[num] = Instantiate(dustPrefab);
 			dusts[num].SetActive(false);
+			dusts[num].GetComponent<Rigidbody>().sleepThreshold = -1;
 		}
 	}
 

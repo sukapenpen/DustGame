@@ -8,19 +8,36 @@ public class Dust : MonoBehaviour
     private AudioClip hitDustSound;
     
     private AudioSource audioSource;
+    private Vector3 initPosition;
     private bool firstHit;
-    private float dustBoxStayTimeCount;
+    private bool hitObject;
+    private float dustStayTimeCount;
 
     private void Awake()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
-        firstHit = false;
-        dustBoxStayTimeCount = 0.0f;
+        initPosition = this.transform.position;
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        firstHit = false;
+        dustStayTimeCount = 0.0f;
         audioSource.PlayOneShot(fallinDustSound);
+    }
+
+    private void Update()
+    {
+        if (hitObject)
+        {
+            dustStayTimeCount += Time.deltaTime;
+        }
+
+        if (dustStayTimeCount >= 5.0f)
+        {
+            this.gameObject.SetActive(false);
+        }
+
     }
 
     private void OnCollisionEnter(Collision obj)
@@ -30,12 +47,13 @@ public class Dust : MonoBehaviour
             audioSource.PlayOneShot(hitDustSound);
             firstHit = true;
         }
+
+        hitObject = true;
     }
 
-    /*
-    private void OnCollisionStay()
+    private void OnDisable()
     {
-        
+        transform.position = initPosition;
     }
-    */
+
 }
