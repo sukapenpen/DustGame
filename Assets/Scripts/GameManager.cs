@@ -1,19 +1,10 @@
 ﻿using UnityEngine;
 
-public enum GameState
-{
-    Title,
-    Load,
-    Play
-}
-
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    private static GameState currentGamestate;
 
     private void Awake()
     {
-        currentGamestate = GameState.Title;
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
@@ -26,7 +17,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void Update()
     {
-        switch (currentGamestate)
+        switch (GameSceneManager.Instance.GetGameState())
         {
             case GameState.Title:
                 TitleAction();
