@@ -32,6 +32,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             case GameState.Title:
                 TitleAction();
+                //SerialManager.Instance.TestRead();
+                //SerialManager.Instance.Run();
                 break;
             case GameState.Load:
                 LoadAction();

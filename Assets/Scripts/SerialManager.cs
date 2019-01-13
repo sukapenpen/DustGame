@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.IO.Ports;
-using System.Runtime.Remoting.Messaging;
+using System.Text;
 
 public class SerialManager // : MonoBehaviour
 {
@@ -31,50 +31,36 @@ public class SerialManager // : MonoBehaviour
     
     public void Init()
     {
-        port = "/dev/cu.usbmodem14203";
-        this.mbed = new SerialPort(port, 9600);
-        this.mbed.ReadTimeout = 50;
-        this.mbed.Open();
+        port = "/dev/cu.usbmodem14103";
+        mbed = new SerialPort(port, 9600);
+        mbed.ReadTimeout = 10;
+        mbed.Open();
         Debug.Log("スタート");
     }
 
     public void Run()
     {
-        //ReadDistance();
-        /*
-        message = ReadDistance();
-        Debug.Log(message);
-        */
+        
     }
 
     public float ReadDistance()
     {
+        var text = new StringBuilder();
+        string str;
         try
         {
-            float distance = float.Parse(this.mbed.ReadLine());
-            
-            return distance;
+            while (text.Length < 7)
+            {
+                text.Append(mbed.ReadExisting());
+            }
+
+            str = text.ToString();
+            return float.Parse(str);
         }
         catch
         {
             return -1;
         }
     }
-
-    /*
-    private void ReadDistance()
-    {
-        try
-        {
-            string message = this.mbed.ReadLine();
-            Debug.Log(message);
-        }
-        catch (Exception e)
-        {
-            
-        }
-        
-    }
-    */
  
 }
