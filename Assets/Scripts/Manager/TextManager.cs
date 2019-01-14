@@ -22,34 +22,50 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		startCount = transform.Find("StartCount").gameObject;
 		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
 	}
-	
+
+	public void TitleRun()
+	{
+		StartTextObject(gUIDustCounter);
+		StartTextObject(theNumberOfDusts);
+		StopTextObject(startCount);
+		StopTextObject(gameTrashDustCounter);
+	}
+
+	public void LoadRun()
+	{
+		StopTextObject(gUIDustCounter);
+		StopTextObject(theNumberOfDusts);
+		StartTextObject(startCount);
+		StartTextObject(gameTrashDustCounter);
+	}
+
+	public void PlayRun()
+	{
+		StopTextObject(gUIDustCounter);
+		StopTextObject(theNumberOfDusts);
+		StopTextObject(startCount);
+		StartTextObject(gameTrashDustCounter);
+	}
+
 	public void UpdateDustCounter()
 	{
 		realTrashDustCounter = DustManager.Instance.RealTrashDustCounter;
 		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
 	}
-	
-	public void StartGameStartCount()
+
+	private void StartTextObject(GameObject _obj)
 	{
-		if (!startCount.activeSelf)
+		if (!_obj.activeSelf)
 		{
-			startCount.SetActive(true);
+			_obj.SetActive(true);
 		}
 	}
 	
-	public void StartGameCaughtDustCounter()
+	private void StopTextObject(GameObject _obj)
 	{
-		if (!gameTrashDustCounter.activeSelf)
+		if (_obj.activeSelf)
 		{
-			gameTrashDustCounter.SetActive(true);
-		}
-	}
-	
-	public void StopGameCaughtDustCounter()
-	{
-		if (gameTrashDustCounter.activeSelf)
-		{
-			gameTrashDustCounter.SetActive(false);
+			_obj.SetActive(false);
 		}
 	}
 	

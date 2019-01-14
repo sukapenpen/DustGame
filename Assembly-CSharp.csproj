@@ -56,10 +56,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Dust.cs" />
     <Compile Include="Assets\Scripts\DustBox.cs" />
     <Compile Include="Assets\Scripts\GameStartCounter.cs" />
     <Compile Include="Assets\Scripts\JudgeDustBoxObj.cs" />
+    <Compile Include="Assets\Scripts\MainCameraMove.cs" />
     <Compile Include="Assets\Scripts\Manager\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DustManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
