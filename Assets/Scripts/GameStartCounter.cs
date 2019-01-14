@@ -10,18 +10,6 @@ public class GameStartCounter : MonoBehaviour
 		this.gameObject.SetActive(false);
 	}
 
-	/*
-	private void OnEnable()
-	{
-		if (GameSceneManager.Instance.GetGameState() == GameState.Load)
-		{
-			gameStartfig = 3;
-			gameStartCounter = 4.0f;
-			GetComponent<TextMesh>().text = gameStartfig.ToString();
-		}
-	}
-	*/
-
 	private void Update ()
 	{
 		gameStartCounter -= Time.deltaTime;

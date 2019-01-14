@@ -2,6 +2,7 @@
 
 public class DustBox : SingletonMonoBehaviour<DustBox>
 {
+	private Vector3 initPos;
 	private float speed = 4.0f;
 	private int realTrashDustCounter;
 	public int RealTrashDustCounter
@@ -18,6 +19,13 @@ public class DustBox : SingletonMonoBehaviour<DustBox>
 
 	public void Init ()
 	{
+		initPos = transform.position;
+	}
+
+	public void ResetManager()
+	{
+		transform.position = initPos;
+		transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
 		RealTrashDustCounter = 0;
 		GameTrashDustCounter = 0;
 	}

@@ -15,14 +15,19 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 
 	public void Init()
 	{
-		realTrashDustCounter = 0;
 		gameStartCount = 3;
 		gUIDustCounter = GameObject.FindWithTag("DustCounter");
 		theNumberOfDusts = GameObject.FindWithTag("TheNumberOfDusts");
-		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
 		startCount = transform.Find("StartCount").gameObject;
 		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
 		resultText = transform.Find("ResultText").gameObject;
+	}
+
+	public void ResetManager()
+	{
+		realTrashDustCounter = 0;
+		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
+		
 	}
 
 	public void TitleSet()

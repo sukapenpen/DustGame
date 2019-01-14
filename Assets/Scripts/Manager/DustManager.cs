@@ -25,9 +25,8 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		CreatePosition();	
 	}
 
-	public void Run()
+	public void ResetManager()
 	{
-		
 	}
 
 	private void CreateDust()

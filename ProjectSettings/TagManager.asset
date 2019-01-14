@@ -11,6 +11,7 @@ TagManager:
   - StartCount
   - StartButton
   - Dust
+  - Plane
   layers:
   - Default
   - TransparentFX
@@ -21,10 +22,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - DustBox
+  - Plane
+  - AliveDust
+  - DeadDust
   - 
   - 
   - 

@@ -4,20 +4,16 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     private float playingTime;
     private int playingFallingCounter;
+    private bool resetFlg;
     
     private void Awake()
-    {
-        playingTime = 0;
-        playingFallingCounter = 0;
+    {        
+        resetFlg = false;
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
         DustBox.Instance.Init();
         ButtonManager.Instance.Init();
-    }
-    
-    private void Start()
-    {
     }
 
     private void Update()
@@ -26,8 +22,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             case GameState.Title:
                 TitleAction();
-                //SerialManager.Instance.TestRead();
-                //SerialManager.Instance.Run();
                 break;
             case GameState.Load:
                 LoadAction();
@@ -43,6 +37,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void TitleAction()
     {
+        ResetAllManager();
         TextManager.Instance.TitleSet();
         ButtonManager.Instance.TitleSet();
         IsRealDustIntoDustBox();
@@ -50,6 +45,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void LoadAction()
     {
+        resetFlg = false;
         TextManager.Instance.LoadSet();
         ButtonManager.Instance.LoadSet();
     }
@@ -66,6 +62,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         TextManager.Instance.ResultSet();
         ButtonManager.Instance.ResultSet();
+    }
+
+    private void ResetAllManager()
+    {
+        if (!resetFlg)
+        {
+            DustManager.Instance.ResetManager();
+            DustBox.Instance.ResetManager();
+            TextManager.Instance.ResetManager();
+            playingTime = 0;
+            playingFallingCounter = 0;
+            resetFlg = true;
+        }
     }
 
     private void IsRealDustIntoDustBox()
