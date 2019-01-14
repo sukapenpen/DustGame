@@ -12,6 +12,7 @@ TagManager:
   - StartButton
   - Dust
   - Plane
+  - IncineratorBottom
   layers:
   - Default
   - TransparentFX

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Manager\DustManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameSceneManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\Incinerator.cs" />
     <Compile Include="Assets\Scripts\Manager\SerialManager.cs" />
     <Compile Include="Assets\Scripts\Manager\TextManager.cs" />
     <Compile Include="Assets\Scripts\PlayingCaughtDustCounter.cs" />

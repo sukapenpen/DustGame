@@ -62,6 +62,11 @@ public class Dust : MonoBehaviour
         {
             audioSource.PlayOneShot(hitDustSound);
         }
+        
+        if (!firstHit && obj.gameObject.CompareTag("IncineratorBoxBottom"))
+        {
+            audioSource.PlayOneShot(hitDustSound);
+        }
 
         firstHit = true;
     }
