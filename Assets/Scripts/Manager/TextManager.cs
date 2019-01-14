@@ -23,7 +23,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
 	}
 
-	public void TitleRun()
+	public void TitleSet()
 	{
 		StartTextObject(gUIDustCounter);
 		StartTextObject(theNumberOfDusts);
@@ -31,7 +31,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		StopTextObject(gameTrashDustCounter);
 	}
 
-	public void LoadRun()
+	public void LoadSet()
 	{
 		StopTextObject(gUIDustCounter);
 		StopTextObject(theNumberOfDusts);
@@ -39,7 +39,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		StartTextObject(gameTrashDustCounter);
 	}
 
-	public void PlayRun()
+	public void PlaySet()
 	{
 		StopTextObject(gUIDustCounter);
 		StopTextObject(theNumberOfDusts);
