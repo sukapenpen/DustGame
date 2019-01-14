@@ -2,7 +2,7 @@
 
 public class DustBox : SingletonMonoBehaviour<DustBox>
 {
-	private float speed = 2.0f;
+	private float speed = 4.0f;
 
 	public void Init ()
 	{

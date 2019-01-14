@@ -5,8 +5,12 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	private GameObject gUIDustCounter;
 	private GameObject theNumberOfDusts;
 	private GameObject startCount;
+	private GameObject gameTrashDustCounter;
+
 	private int realTrashDustCounter;
 	private int gameStartCount;
+	
+	
 
 	public void Init()
 	{
@@ -16,6 +20,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		theNumberOfDusts = GameObject.FindWithTag("TheNumberOfDusts");
 		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
 		startCount = transform.Find("StartCount").gameObject;
+		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
 	}
 	
 	public void UpdateDustCounter()
@@ -29,6 +34,22 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		if (!startCount.activeSelf)
 		{
 			startCount.SetActive(true);
+		}
+	}
+	
+	public void StartGameCaughtDustCounter()
+	{
+		if (!gameTrashDustCounter.activeSelf)
+		{
+			gameTrashDustCounter.SetActive(true);
+		}
+	}
+	
+	public void StopGameCaughtDustCounter()
+	{
+		if (gameTrashDustCounter.activeSelf)
+		{
+			gameTrashDustCounter.SetActive(false);
 		}
 	}
 	

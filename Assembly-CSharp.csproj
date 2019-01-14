@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Manager\GameSceneManager.cs" />
     <Compile Include="Assets\Scripts\Manager\SerialManager.cs" />
     <Compile Include="Assets\Scripts\Manager\TextManager.cs" />
+    <Compile Include="Assets\Scripts\PlayingCaughtDustCounter.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\Singleton\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\StartButton.cs" />

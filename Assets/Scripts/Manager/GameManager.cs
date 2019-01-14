@@ -44,6 +44,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void TitleAction()
     {
         ButtonManager.Instance.StartGameStartButton();
+        TextManager.Instance.StopGameCaughtDustCounter();
         IsRealDustIntoDustBox();
     }
 
@@ -51,6 +52,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         TextManager.Instance.StartGameStartCount();
         ButtonManager.Instance.StopGameStartButton();
+        TextManager.Instance.StartGameCaughtDustCounter();
     }
 
     private void PlayAction()
@@ -59,6 +61,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         PlayingFallDust();
         DustBox.Instance.Move();
         ButtonManager.Instance.StopGameStartButton();
+        TextManager.Instance.StartGameCaughtDustCounter();
     }
 
     private void ResultAction()

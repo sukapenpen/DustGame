@@ -19,11 +19,11 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		private set { realTrashDustCounter = value; }
 	}
 	
-	private int gamelTrashDustCounter;
-	public int GamelTrashDustCounter
+	private int gameTrashDustCounter;
+	public int GameTrashDustCounter
 	{
-		get { return gamelTrashDustCounter; }
-		set { gamelTrashDustCounter = value; }
+		get { return gameTrashDustCounter; }
+		set { gameTrashDustCounter = value; }
 	}
 	
 	public void Init()
@@ -31,7 +31,7 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		startDustCount = 10;
 		positionsCount = 10;
 		RealTrashDustCounter = 0;
-		GamelTrashDustCounter = 0;
+		GameTrashDustCounter = 0;
 		dusts = new GameObject[startDustCount];
 		CreateDust();
 		xPositions = new float[positionsCount];
