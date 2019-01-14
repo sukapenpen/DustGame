@@ -4,7 +4,8 @@ public enum GameState
 {
     Title,
     Load,
-    Play
+    Play,
+    Result
 }
 
 public class GameSceneManager

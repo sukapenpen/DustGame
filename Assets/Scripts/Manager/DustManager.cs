@@ -12,18 +12,18 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	
 	private int startDustCount;
 	private int positionsCount;
-	private int dustCounter;
-	public int DustCounter
+	private int realTrashDustCounter;
+	public int RealTrashDustCounter
 	{
-		get { return dustCounter; }
-		private set { dustCounter = value; }
+		get { return realTrashDustCounter; }
+		private set { realTrashDustCounter = value; }
 	}
 	
 	public void Init()
 	{
 		startDustCount = 10;
 		positionsCount = 10;
-		DustCounter = 0;
+		RealTrashDustCounter = 0;
 		dusts = new GameObject[startDustCount];
 		CreateDust();
 		xPositions = new float[positionsCount];
@@ -76,14 +76,18 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	{
 		GameObject dust = SeachFalseDust();
 		dust.SetActive(true);
-		DustCounter += 1;
+		RealTrashDustCounter += 1;
 	}
 	
 	public void AppearPlayingDust()
 	{
-		GameObject dust = SeachFalseDust();
-		dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y, zPositions[Random.Range(0, 10)]);
-		dust.SetActive(true);
+		if (RealTrashDustCounter > 0)
+		{
+			GameObject dust = SeachFalseDust();
+			dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y,
+				zPositions[Random.Range(0, 10)]);
+			dust.SetActive(true);
+		}
 	}
 
 }

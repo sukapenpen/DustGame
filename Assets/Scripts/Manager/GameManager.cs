@@ -2,9 +2,13 @@
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    private float playingTime;
+    private int playingFallingCounter;
     
     private void Awake()
     {
+        playingTime = 0;
+        playingFallingCounter = 0;
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
@@ -31,6 +35,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             case GameState.Play:
                 PlayAction();
                 break;
+            case GameState.Result:
+                ResultAction();
+                break;
         }
     }
 
@@ -48,9 +55,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void PlayAction()
     {
-        Debug.Log("プレイ中のアクション");
+        playingTime += Time.deltaTime;
+        PlayingFallDust();
         DustBox.Instance.Move();
         ButtonManager.Instance.StopGameStartButton();
+    }
+
+    private void ResultAction()
+    {
+        
     }
 
     private void IsRealDustIntoDustBox()
@@ -61,6 +74,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             DustManager.Instance.AppearTitleDust();
             TextManager.Instance.UpdateDustCounter();
+        }
+    }
+
+    private void PlayingFallDust()
+    {
+        if (playingFallingCounter < DustManager.Instance.RealTrashDustCounter)
+        {
+            if (playingTime / 5 >= playingFallingCounter)
+            {
+                DustManager.Instance.AppearPlayingDust();
+                playingFallingCounter += 1;
+            }
         }
     }
     
