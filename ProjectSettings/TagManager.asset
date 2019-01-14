@@ -7,6 +7,9 @@ TagManager:
   - DustCounter
   - TheNumberOfDusts
   - DustBoxBottom
+  - DustBox
+  - StartCount
+  - StartButton
   layers:
   - Default
   - TransparentFX
