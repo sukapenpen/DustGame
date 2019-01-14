@@ -19,11 +19,19 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		private set { realTrashDustCounter = value; }
 	}
 	
+	private int gamelTrashDustCounter;
+	public int GamelTrashDustCounter
+	{
+		get { return gamelTrashDustCounter; }
+		set { gamelTrashDustCounter = value; }
+	}
+	
 	public void Init()
 	{
 		startDustCount = 10;
 		positionsCount = 10;
 		RealTrashDustCounter = 0;
+		GamelTrashDustCounter = 0;
 		dusts = new GameObject[startDustCount];
 		CreateDust();
 		xPositions = new float[positionsCount];
@@ -42,7 +50,6 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		{
 			dusts[num] = Instantiate(dustPrefab);
 			dusts[num].SetActive(false);
-			dusts[num].GetComponent<Rigidbody>().sleepThreshold = -1;
 		}
 	}
 

@@ -40,9 +40,9 @@ public class Dust : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision obj)
+    private void OnTriggerEnter(Collider obj)
     {
-        if (!firstHit && obj.gameObject.CompareTag("DustBox"))
+        if (!firstHit && obj.gameObject.CompareTag("DustBoxBottom"))
         {
             audioSource.PlayOneShot(hitDustSound);
             firstHit = true;

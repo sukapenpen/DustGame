@@ -63,7 +63,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void ResultAction()
     {
-        
+        Debug.Log("リザルト画面での動き");
     }
 
     private void IsRealDustIntoDustBox()

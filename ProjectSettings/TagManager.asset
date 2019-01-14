@@ -10,6 +10,7 @@ TagManager:
   - DustBox
   - StartCount
   - StartButton
+  - Dust
   layers:
   - Default
   - TransparentFX

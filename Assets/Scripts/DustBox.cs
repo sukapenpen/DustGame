@@ -33,11 +33,4 @@ public class DustBox : SingletonMonoBehaviour<DustBox>
 		}
 	}
 
-	void OnCollisionEnter(Collision _object)
-	{
-		if (_object.gameObject.tag == "Dust")
-		{
-			Debug.Log("ゴミが入った！");
-		}
-	}
 }
