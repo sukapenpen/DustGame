@@ -45,4 +45,9 @@ public class GameSceneManager
     {
         CurrentGamestate = GameState.Play;
     }
+
+    public void GoResult()
+    {
+        CurrentGamestate = GameState.Result;
+    }
 }

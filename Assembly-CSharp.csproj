@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ButtonEvent.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Dust.cs" />
     <Compile Include="Assets\Scripts\DustBox.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Assets\Scripts\PlayingCaughtDustCounter.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\Singleton\SingletonMonoBehaviour.cs" />
-    <Compile Include="Assets\Scripts\StartButton.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/ichikawatakumi/Documents/PC/DustGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -11,7 +11,7 @@ public class JudgeDustBoxObj : SingletonMonoBehaviour<JudgeDustBoxObj>
         {
             if (GameSceneManager.Instance.GetGameState() == GameState.Play)
             {
-                DustManager.Instance.GameTrashDustCounter += 1;
+                DustBox.Instance.GameTrashDustCounter += 1;
                 Debug.Log("ゲーム中にゴミが入った！");
             }
 

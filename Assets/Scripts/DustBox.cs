@@ -3,10 +3,28 @@
 public class DustBox : SingletonMonoBehaviour<DustBox>
 {
 	private float speed = 4.0f;
+	private int realTrashDustCounter;
+	public int RealTrashDustCounter
+	{
+		get { return realTrashDustCounter; }
+		private set { realTrashDustCounter = value; }
+	}
+	private int gameTrashDustCounter;
+	public int GameTrashDustCounter
+	{
+		get { return gameTrashDustCounter; }
+		set { gameTrashDustCounter = value; }
+	}
 
 	public void Init ()
 	{
-		
+		RealTrashDustCounter = 0;
+		GameTrashDustCounter = 0;
+	}
+
+	public void AddRealDust()
+	{
+		RealTrashDustCounter += 1;
 	}
 	
 	public void Move ()

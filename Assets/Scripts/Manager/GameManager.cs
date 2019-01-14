@@ -44,17 +44,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void TitleAction()
     {
         TextManager.Instance.TitleSet();
-        ButtonManager.Instance.StartGameStartButton();
-        //TextManager.Instance.StopGameCaughtDustCounter();
+        ButtonManager.Instance.TitleSet();
         IsRealDustIntoDustBox();
     }
 
     private void LoadAction()
     {
         TextManager.Instance.LoadSet();
-        //TextManager.Instance.StartGameStartCount();
-        ButtonManager.Instance.StopGameStartButton();
-        //TextManager.Instance.StartGameCaughtDustCounter();
+        ButtonManager.Instance.LoadSet();
     }
 
     private void PlayAction()
@@ -62,14 +59,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         playingTime += Time.deltaTime;
         PlayingFallDust();
         DustBox.Instance.Move();
-        ButtonManager.Instance.StopGameStartButton();
         TextManager.Instance.PlaySet();
-        //TextManager.Instance.StartGameCaughtDustCounter();
     }
 
     private void ResultAction()
     {
-        Debug.Log("リザルト画面での動き");
+        TextManager.Instance.ResultSet();
+        ButtonManager.Instance.ResultSet();
     }
 
     private void IsRealDustIntoDustBox()
@@ -79,18 +75,29 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (_dustDistance >= 0)
         {
             DustManager.Instance.AppearTitleDust();
+            DustBox.Instance.AddRealDust();
             TextManager.Instance.UpdateDustCounter();
         }
     }
 
     private void PlayingFallDust()
     {
-        if (playingFallingCounter < DustManager.Instance.RealTrashDustCounter)
+        var _sec = 4;
+        
+        if (playingFallingCounter < DustBox.Instance.RealTrashDustCounter)
         {
-            if (playingTime / 5 >= playingFallingCounter)
+            if (playingTime / _sec >= playingFallingCounter)
             {
                 DustManager.Instance.AppearPlayingDust();
                 playingFallingCounter += 1;
+            }
+        }
+
+        if (playingFallingCounter == DustBox.Instance.RealTrashDustCounter)
+        {
+            if (playingTime / _sec >= playingFallingCounter)
+            {
+                GameSceneManager.Instance.GoResult();
             }
         }
     }

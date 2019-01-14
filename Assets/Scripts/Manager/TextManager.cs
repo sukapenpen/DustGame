@@ -6,6 +6,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	private GameObject theNumberOfDusts;
 	private GameObject startCount;
 	private GameObject gameTrashDustCounter;
+	private GameObject resultText;
 
 	private int realTrashDustCounter;
 	private int gameStartCount;
@@ -21,6 +22,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
 		startCount = transform.Find("StartCount").gameObject;
 		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
+		resultText = transform.Find("ResultText").gameObject;
 	}
 
 	public void TitleSet()
@@ -29,6 +31,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		StartTextObject(theNumberOfDusts);
 		StopTextObject(startCount);
 		StopTextObject(gameTrashDustCounter);
+		StopTextObject(resultText);
 	}
 
 	public void LoadSet()
@@ -41,15 +44,21 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 
 	public void PlaySet()
 	{
-		StopTextObject(gUIDustCounter);
-		StopTextObject(theNumberOfDusts);
 		StopTextObject(startCount);
 		StartTextObject(gameTrashDustCounter);
 	}
 
+	public void ResultSet()
+	{
+		int _result = DustBox.Instance.GameTrashDustCounter;
+		StopTextObject(gameTrashDustCounter);
+		resultText.GetComponent<TextMesh>().text = "結果\n" + _result + "個燃やせました！";
+		StartTextObject(resultText);
+	}
+
 	public void UpdateDustCounter()
 	{
-		realTrashDustCounter = DustManager.Instance.RealTrashDustCounter;
+		realTrashDustCounter = DustBox.Instance.RealTrashDustCounter;
 		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
 	}
 

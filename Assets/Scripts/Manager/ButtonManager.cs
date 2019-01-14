@@ -3,38 +3,48 @@
 public class ButtonManager : SingletonMonoBehaviour<ButtonManager>
 {
     private GameObject startButton;
+    private GameObject returnTitleButton;
 
     public void Init()
     {
         startButton = GameObject.FindWithTag("StartButton");
+        returnTitleButton = transform.Find("ReturnTitleButton").gameObject;;
     }
 
-    public void Run()
+    public void TitleSet()
+    {
+        StartButtonObject(startButton);
+        StopButtonObject(returnTitleButton);
+    }
+
+    public void LoadSet()
+    {
+        StopButtonObject(startButton);
+    }
+
+    public void PlaySet()
     {
         
     }
-    
-    void Start()
-    {
-    }
 
-    void Update()
+    public void ResultSet()
     {
+        StartButtonObject(returnTitleButton);
     }
     
-    public void StartGameStartButton()
+    private void StartButtonObject(GameObject _obj)
     {
-        if (!startButton.activeSelf)
+        if (!_obj.activeSelf)
         {
-            startButton.SetActive(true);
+            _obj.SetActive(true);
         }
     }
-
-    public void StopGameStartButton()
+    
+    private void StopButtonObject(GameObject _obj)
     {
-        if (startButton.activeSelf)
+        if (_obj.activeSelf)
         {
-            startButton.SetActive(false);
+            _obj.SetActive(false);
         }
     }
     
