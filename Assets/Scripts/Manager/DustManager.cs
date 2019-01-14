@@ -10,14 +10,21 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	[SerializeField]
 	private GameObject dustPrefab;
 	
-	private int dustCount;
+	private int startDustCount;
 	private int positionsCount;
+	private int dustCounter;
+	public int DustCounter
+	{
+		get { return dustCounter; }
+		private set { dustCounter = value; }
+	}
 	
 	public void Init()
 	{
-		dustCount = 5;
+		startDustCount = 10;
 		positionsCount = 10;
-		dusts = new GameObject[dustCount];
+		DustCounter = 0;
+		dusts = new GameObject[startDustCount];
 		CreateDust();
 		xPositions = new float[positionsCount];
 		zPositions = new float[positionsCount];
@@ -31,7 +38,7 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 
 	private void CreateDust()
 	{
-		for (int num = 0; num < dustCount; num += 1)
+		for (int num = 0; num < startDustCount; num += 1)
 		{
 			dusts[num] = Instantiate(dustPrefab);
 			dusts[num].SetActive(false);
@@ -69,6 +76,7 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	{
 		GameObject dust = SeachFalseDust();
 		dust.SetActive(true);
+		DustCounter += 1;
 	}
 	
 	public void AppearPlayingDust()

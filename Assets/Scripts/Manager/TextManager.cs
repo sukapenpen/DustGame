@@ -18,12 +18,9 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		startCount = transform.Find("StartCount").gameObject;
 	}
 	
-	//nullなのはfalseだから
-	//ならタイトルにも使う？
-	
-	public void AddDustCounter()
+	public void UpdateDustCounter()
 	{
-		dustCounter += 1;
+		dustCounter = DustManager.Instance.DustCounter;
 		gUIDustCounter.GetComponent<TextMesh>().text = dustCounter.ToString();
 	}
 	

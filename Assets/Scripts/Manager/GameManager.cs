@@ -60,7 +60,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (_dustDistance >= 0)
         {
             DustManager.Instance.AppearTitleDust();
-            TextManager.Instance.AddDustCounter();
+            TextManager.Instance.UpdateDustCounter();
         }
     }
     
