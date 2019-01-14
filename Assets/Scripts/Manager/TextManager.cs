@@ -55,7 +55,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 
 	public void ResultSet()
 	{
-		int _result = DustBox.Instance.GameTrashDustCounter;
+		int _result = Incinerator.Instance.GameTrashDustCounter;
 		StopTextObject(gameTrashDustCounter);
 		resultText.GetComponent<TextMesh>().text = "結果\n" + _result + "個燃やせました！";
 		StartTextObject(resultText);

@@ -23,7 +23,7 @@ public class PlayingCaughtDustCounter : SingletonMonoBehaviour<PlayingCaughtDust
 
     public void UpdateCounter()
     {
-        GetComponent<TextMesh>().text = templateTheNumberOf + DustBox.Instance.GameTrashDustCounter.ToString();
+        GetComponent<TextMesh>().text = templateTheNumberOf + Incinerator.Instance.GameTrashDustCounter.ToString();
     }
 
 }

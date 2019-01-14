@@ -12,8 +12,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
-        DustBox.Instance.Init();
         ButtonManager.Instance.Init();
+        PlayerManager.Instance.Init();
     }
 
     private void Update()
@@ -40,6 +40,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         ResetAllManager();
         TextManager.Instance.TitleSet();
         ButtonManager.Instance.TitleSet();
+        PlayerManager.Instance.TitleSet();
         IsRealDustIntoDustBox();
     }
 
@@ -48,13 +49,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         resetFlg = false;
         TextManager.Instance.LoadSet();
         ButtonManager.Instance.LoadSet();
+        PlayerManager.Instance.LoadSet();
     }
 
     private void PlayAction()
     {
         playingTime += Time.deltaTime;
         PlayingFallDust();
-        DustBox.Instance.Move();
+        //Incinerator.Instance.Move();
+        //DustBox.Instance.Move();
         TextManager.Instance.PlaySet();
     }
 
@@ -69,8 +72,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (!resetFlg)
         {
             DustManager.Instance.ResetManager();
-            DustBox.Instance.ResetManager();
+            //DustBox.Instance.ResetManager();
             TextManager.Instance.ResetManager();
+            //Incinerator.Instance.ResetManager();
             playingTime = 0;
             playingFallingCounter = 0;
             resetFlg = true;

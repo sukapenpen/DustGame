@@ -13,6 +13,7 @@ TagManager:
   - Dust
   - Plane
   - IncineratorBottom
+  - Incinerator
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JudgeDustBoxObj : SingletonMonoBehaviour<JudgeDustBoxObj>
+public class JudgeDustBoxObj : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider _object)
@@ -11,11 +11,9 @@ public class JudgeDustBoxObj : SingletonMonoBehaviour<JudgeDustBoxObj>
         {
             if (GameSceneManager.Instance.GetGameState() == GameState.Play)
             {
-                DustBox.Instance.GameTrashDustCounter += 1;
-                Debug.Log("ゲーム中にゴミが入った！");
+                Incinerator.Instance.GameTrashDustCounter += 1;
             }
 
-            Debug.Log("ゴミが入った");
         }
     }
     

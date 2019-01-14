@@ -10,16 +10,24 @@ public class DustBox : SingletonMonoBehaviour<DustBox>
 		get { return realTrashDustCounter; }
 		private set { realTrashDustCounter = value; }
 	}
+	
+	/*
 	private int gameTrashDustCounter;
 	public int GameTrashDustCounter
 	{
 		get { return gameTrashDustCounter; }
 		set { gameTrashDustCounter = value; }
 	}
+	*/
 
-	public void Init ()
+	private void Awake ()
 	{
 		initPos = transform.position;
+	}
+
+	private void OnEnable()
+	{
+		ResetManager();
 	}
 
 	public void ResetManager()
@@ -27,7 +35,7 @@ public class DustBox : SingletonMonoBehaviour<DustBox>
 		transform.position = initPos;
 		transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
 		RealTrashDustCounter = 0;
-		GameTrashDustCounter = 0;
+		//GameTrashDustCounter = 0;
 	}
 
 	public void AddRealDust()

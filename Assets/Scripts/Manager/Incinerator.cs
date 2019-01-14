@@ -5,13 +5,33 @@ using UnityEngine;
 public class Incinerator : SingletonMonoBehaviour<Incinerator>
 {
 	private float speed = 4.0f;
-
-	void Start () {
-		
+	private Vector3 initPos;
+	private int gameTrashDustCounter;
+	public int GameTrashDustCounter
+	{
+		get { return gameTrashDustCounter; }
+		set { gameTrashDustCounter = value; }
 	}
 	
-	void Update () {
-		
+	private void Awake ()
+	{
+		initPos = transform.position;
+	}
+
+	private void OnEnable()
+	{
+		ResetManager();
+	}
+	
+	private void Update () {
+		Move();
+	}
+	
+	public void ResetManager()
+	{
+		transform.position = initPos;
+		transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+		GameTrashDustCounter = 0;
 	}
 	
 	public void Move ()
