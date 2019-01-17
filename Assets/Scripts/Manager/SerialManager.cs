@@ -5,11 +5,9 @@ using System.Text;
 
 public class SerialManager // : MonoBehaviour
 {
-    private static String port;
     private static SerialManager instance;
 
     private SerialPort mbed;
-    private string message;
     
     public static SerialManager Instance
     {
@@ -31,8 +29,27 @@ public class SerialManager // : MonoBehaviour
     
     public void Init()
     {
-        port = "/dev/cu.usbmodem14103";
-        mbed = new SerialPort(port, 9600);
+        try
+        {
+            ConnectSerialPort("/dev/cu.usbmodem14103");
+        }
+        catch
+        {
+            try
+            {
+                ConnectSerialPort("/dev/cu.usbmodem14203");
+            }
+            catch
+            {
+                Debug.Log("何もなかった！");
+            }
+        }
+        
+    }
+
+    private void ConnectSerialPort(string _port)
+    {
+        mbed = new SerialPort(_port, 9600);
         mbed.ReadTimeout = 10;
         mbed.Open();
         Debug.Log("スタート");

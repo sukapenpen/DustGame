@@ -4,22 +4,27 @@ public class ButtonManager : SingletonMonoBehaviour<ButtonManager>
 {
     private GameObject startButton;
     private GameObject returnTitleButton;
+    private GameObject resetDustButton;
+
 
     public void Init()
     {
         startButton = GameObject.FindWithTag("StartButton");
-        returnTitleButton = transform.Find("ReturnTitleButton").gameObject;;
+        resetDustButton = GameObject.FindWithTag("ResetDustButton");
+        returnTitleButton = transform.Find("ReturnTitleButton").gameObject;
     }
 
     public void TitleSet()
     {
         StartButtonObject(startButton);
+        StartButtonObject(resetDustButton);
         StopButtonObject(returnTitleButton);
     }
 
     public void LoadSet()
     {
         StopButtonObject(startButton);
+        StopButtonObject(resetDustButton);
     }
 
     public void PlaySet()

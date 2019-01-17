@@ -13,5 +13,12 @@ public class ButtonEvent : MonoBehaviour {
 		GameSceneManager.Instance.GoTitle();
 		Debug.Log("タイトルボタンがくりっくされた！");
 	}
+
+	public void ClickResetButton()
+	{
+		DustBox.Instance.ResetDust();
+		TextManager.Instance.UpdateDustCounter();
+		Debug.Log("リセットボタンがくりっくされた！");
+	}
 	
 }

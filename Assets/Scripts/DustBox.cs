@@ -42,6 +42,11 @@ public class DustBox : SingletonMonoBehaviour<DustBox>
 	{
 		RealTrashDustCounter += 1;
 	}
+
+	public void ResetDust()
+	{
+		RealTrashDustCounter = 0;
+	}
 	
 	public void Move ()
 	{
