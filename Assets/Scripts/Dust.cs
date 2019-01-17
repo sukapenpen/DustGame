@@ -31,7 +31,7 @@ public class Dust : MonoBehaviour
             dustStayTimeCount += Time.deltaTime;
         }
 
-        if (dustStayTimeCount >= 5.0f)
+        if (dustStayTimeCount >= 4.0f)
         {
             this.gameObject.SetActive(false);
         }

@@ -40,8 +40,8 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 
 	private void CreatePosition()
 	{
-		float position = -9.0f;
-		float equalPosition = 18.0f / positionsCount;
+		float position = -7.0f;
+		float equalPosition = 14.0f / positionsCount;
 		
 		for (int num = 0; num < positionsCount; num += 1)
 		{

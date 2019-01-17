@@ -65,13 +65,13 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\ButtonEvent.cs" />
-    <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Dust.cs" />
     <Compile Include="Assets\Scripts\DustBox.cs" />
     <Compile Include="Assets\Scripts\GameStartCounter.cs" />
     <Compile Include="Assets\Scripts\JudgeDustBoxObj.cs" />
     <Compile Include="Assets\Scripts\MainCameraMove.cs" />
     <Compile Include="Assets\Scripts\Manager\ButtonManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DustManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameSceneManager.cs" />
