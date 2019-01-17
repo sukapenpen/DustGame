@@ -4,7 +4,10 @@ public class ButtonEvent : MonoBehaviour {
 
 	public void ClickStartButton()
 	{
-		GameSceneManager.Instance.GoLoad();
+		if (DustBox.Instance.RealTrashDustCounter > 0)
+		{
+			GameSceneManager.Instance.GoLoad();
+		}
 		Debug.Log("くりっくされた！");
 	}
 	

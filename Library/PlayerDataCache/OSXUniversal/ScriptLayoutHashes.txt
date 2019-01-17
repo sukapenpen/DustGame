@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/ichikawatakumi/Desktop/test1.app
+/Users/ichikawatakumi/Desktop/DustGame.app
 SceneListBegin?
 Assets/Scenes/MainScene.unity
 SceneListEnd?
