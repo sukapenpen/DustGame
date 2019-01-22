@@ -12,12 +12,7 @@ public class GameStartCounter : MonoBehaviour
 
 	private void Update ()
 	{
-		gameStartCounter -= Time.deltaTime;
-		if (gameStartCounter < gameStartfig)
-		{
-			gameStartfig -= 1;
-			UpdateGameStartCount(gameStartfig);
-		}
+		CountTime();
 	}
 
 	private void OnDisable()
@@ -25,6 +20,16 @@ public class GameStartCounter : MonoBehaviour
 		gameStartfig = 3;
 		gameStartCounter = 4.0f;
 		GetComponent<TextMesh>().text = gameStartfig.ToString();
+	}
+
+	private void CountTime()
+	{
+		gameStartCounter -= Time.deltaTime;
+		if (gameStartCounter < gameStartfig)
+		{
+			gameStartfig -= 1;
+			UpdateGameStartCount(gameStartfig);
+		}
 	}
 
 	public void UpdateGameStartCount(int _count)

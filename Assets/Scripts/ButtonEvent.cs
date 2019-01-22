@@ -4,7 +4,7 @@ public class ButtonEvent : MonoBehaviour {
 
 	public void ClickStartButton()
 	{
-		if (DustBox.Instance.RealTrashDustCounter > 0)
+		if (CountManager.Instance.RealTrashDustCounter > 0)
 		{
 			GameSceneManager.Instance.GoLoad();
 		}
@@ -19,9 +19,10 @@ public class ButtonEvent : MonoBehaviour {
 
 	public void ClickResetButton()
 	{
-		DustBox.Instance.ResetDust();
-		TextManager.Instance.UpdateDustCounter();
+		CountManager.Instance.RealTrashReset();
+		TextManager.Instance.UpdateRealDustCounter();
 		Debug.Log("リセットボタンがくりっくされた！");
 	}
 	
 }
+ 

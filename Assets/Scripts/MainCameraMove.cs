@@ -19,23 +19,10 @@ public class MainCameraMove : SingletonMonoBehaviour<MainCameraMove>
 
 	private void Update()
 	{
-		/*
-		if (!(transform.position == aimPos))
-		{
-			transform.position = Vector3.MoveTowards(transform.position, aimPos, moveSpeed * Time.deltaTime);
-		}
-		else
-		{
-			transform.rotation = Quaternion.Slerp(transform.rotation, dustBox.transform.rotation, 1);
-		}
-		*/
 		var rotat = transform.rotation.x;
-		Debug.Log(rotat + "あああ");
 		if (rotat < 90)
 		{
-			Debug.Log(rotat);
 			transform.rotation = Quaternion.Euler(transform.rotation.x + rotateSpeed, 0, 0);
-			//Debug.Log(transform.);
 		}
 
 	}

@@ -10,7 +10,6 @@ public class Dust : MonoBehaviour
     private AudioSource audioSource;
     private Vector3 initPosition;
     private bool firstHit;
-    private bool hitObject;
     private float dustStayTimeCount;
 
     private void Awake()
@@ -26,16 +25,24 @@ public class Dust : MonoBehaviour
 
     private void Update()
     {
-        if (hitObject)
+        CountTrueTime();
+        DeleteDust();
+    }
+
+    private void CountTrueTime()
+    {
+        if (firstHit)
         {
             dustStayTimeCount += Time.deltaTime;
         }
+    }
 
+    private void DeleteDust()
+    {
         if (dustStayTimeCount >= 4.0f)
         {
             this.gameObject.SetActive(false);
         }
-
     }
 
     private void ResetObject()
@@ -46,28 +53,35 @@ public class Dust : MonoBehaviour
         audioSource.PlayOneShot(fallinDustSound);
     }
 
-    private void OnCollisionEnter(Collision obj)
+    private void OnCollisionEnter(Collision _object)
     {
-        if (obj.gameObject.CompareTag("Plane"))
+        if (_object.gameObject.CompareTag("Plane"))
         {
             gameObject.layer = LayerMask.NameToLayer("DeadDust");
-        }
-        
-        hitObject = true;
+            Debug.Log("Plane更新");
+        }        
     }
 
-    private void OnTriggerEnter(Collider obj)
+    private void OnTriggerEnter(Collider _object)
     {
-        if (!firstHit && obj.gameObject.CompareTag("DustBoxBottom"))
+        if (!firstHit)
         {
-            audioSource.PlayOneShot(hitDustSound);
+            if (_object.gameObject.CompareTag("DustBoxBottom"))
+            {
+                audioSource.PlayOneShot(hitDustSound);
+            }
+        
+            if (_object.gameObject.CompareTag("IncineratorBottom"))
+            {
+                if (GameSceneManager.Instance.GetGameState() == GameState.Play)
+                {
+                    audioSource.PlayOneShot(hitDustSound);
+                    CountManager.Instance.GameTrashAdd();
+                }
+
+            }
         }
         
-        if (!firstHit && obj.gameObject.CompareTag("IncineratorBottom"))
-        {
-            audioSource.PlayOneShot(hitDustSound);
-        }
-
         firstHit = true;
     }
 

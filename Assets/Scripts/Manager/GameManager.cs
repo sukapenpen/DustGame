@@ -9,6 +9,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void Awake()
     {        
         resetFlg = false;
+        CountManager.Instance.Init();
         SerialManager.Instance.Init();
         DustManager.Instance.Init();
         TextManager.Instance.Init();
@@ -33,6 +34,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 ResultAction();
                 break;
         }
+
     }
 
     private void TitleAction()
@@ -42,6 +44,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         ButtonManager.Instance.TitleSet();
         PlayerManager.Instance.TitleSet();
         IsRealDustIntoDustBox();
+        DebugTitle();
     }
 
     private void LoadAction()
@@ -56,9 +59,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         playingTime += Time.deltaTime;
         PlayingFallDust();
-        //Incinerator.Instance.Move();
-        //DustBox.Instance.Move();
         TextManager.Instance.PlaySet();
+        TextManager.Instance.UpdateGameDustCounter();
     }
 
     private void ResultAction()
@@ -72,9 +74,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (!resetFlg)
         {
             DustManager.Instance.ResetManager();
-            //DustBox.Instance.ResetManager();
             TextManager.Instance.ResetManager();
-            //Incinerator.Instance.ResetManager();
+            CountManager.Instance.ResetManager();
             playingTime = 0;
             playingFallingCounter = 0;
             resetFlg = true;
@@ -88,8 +89,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (_dustDistance >= 0)
         {
             DustManager.Instance.AppearTitleDust();
-            DustBox.Instance.AddRealDust();
-            TextManager.Instance.UpdateDustCounter();
+            CountManager.Instance.RealTrashAdd();
+            TextManager.Instance.UpdateRealDustCounter();
+        }
+    }
+
+    private void DebugTitle()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            DustManager.Instance.AppearTitleDust();
+            CountManager.Instance.RealTrashAdd();
+            TextManager.Instance.UpdateRealDustCounter();
         }
     }
 
@@ -97,7 +108,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         var _sec = 4;
         
-        if (playingFallingCounter < DustBox.Instance.RealTrashDustCounter)
+        if (playingFallingCounter < CountManager.Instance.RealTrashDustCounter)
         {
             if (playingTime / _sec >= playingFallingCounter)
             {
@@ -106,7 +117,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             }
         }
 
-        if (playingFallingCounter == DustBox.Instance.RealTrashDustCounter)
+        if (playingFallingCounter == CountManager.Instance.RealTrashDustCounter)
         {
             if (playingTime / _sec >= playingFallingCounter)
             {

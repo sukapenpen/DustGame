@@ -15,6 +15,7 @@ TagManager:
   - IncineratorBottom
   - Incinerator
   - ResetDustButton
+  - GameName
   layers:
   - Default
   - TransparentFX

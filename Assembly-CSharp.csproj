@@ -68,14 +68,15 @@
     <Compile Include="Assets\Scripts\Dust.cs" />
     <Compile Include="Assets\Scripts\DustBox.cs" />
     <Compile Include="Assets\Scripts\GameStartCounter.cs" />
+    <Compile Include="Assets\Scripts\Incinerator.cs" />
     <Compile Include="Assets\Scripts\JudgeDustBoxObj.cs" />
     <Compile Include="Assets\Scripts\MainCameraMove.cs" />
     <Compile Include="Assets\Scripts\Manager\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\CountManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DustManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameSceneManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\Incinerator.cs" />
     <Compile Include="Assets\Scripts\Manager\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Manager\SerialManager.cs" />
     <Compile Include="Assets\Scripts\Manager\TextManager.cs" />

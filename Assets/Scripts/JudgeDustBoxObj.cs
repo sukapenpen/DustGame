@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JudgeDustBoxObj : MonoBehaviour
 {
-
+    /*
     private void OnTriggerEnter(Collider _object)
     {
         if (_object.gameObject.CompareTag("Dust"))
@@ -16,5 +16,6 @@ public class JudgeDustBoxObj : MonoBehaviour
 
         }
     }
+    */
     
 }

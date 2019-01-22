@@ -4,11 +4,12 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 {
 	private GameObject gUIDustCounter;
 	private GameObject theNumberOfDusts;
+	private GameObject gameName;
 	private GameObject startCount;
 	private GameObject gameTrashDustCounter;
 	private GameObject resultText;
 
-	private int realTrashDustCounter;
+	//private int realTrashDustCounter;
 	private int gameStartCount;
 	
 	
@@ -18,6 +19,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		gameStartCount = 3;
 		gUIDustCounter = GameObject.FindWithTag("DustCounter");
 		theNumberOfDusts = GameObject.FindWithTag("TheNumberOfDusts");
+		gameName = GameObject.FindWithTag("GameName");
 		startCount = transform.Find("StartCount").gameObject;
 		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
 		resultText = transform.Find("ResultText").gameObject;
@@ -25,8 +27,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 
 	public void ResetManager()
 	{
-		realTrashDustCounter = 0;
-		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
+		gUIDustCounter.GetComponent<TextMesh>().text = "0";
 		
 	}
 
@@ -34,6 +35,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	{
 		StartTextObject(gUIDustCounter);
 		StartTextObject(theNumberOfDusts);
+		StartTextObject(gameName);
 		StopTextObject(startCount);
 		StopTextObject(gameTrashDustCounter);
 		StopTextObject(resultText);
@@ -43,6 +45,7 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	{
 		StopTextObject(gUIDustCounter);
 		StopTextObject(theNumberOfDusts);
+		StopTextObject(gameName);
 		StartTextObject(startCount);
 		StartTextObject(gameTrashDustCounter);
 	}
@@ -55,16 +58,20 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 
 	public void ResultSet()
 	{
-		int _result = Incinerator.Instance.GameTrashDustCounter;
+		int _result = CountManager.Instance.GameTrashDustCounter;
 		StopTextObject(gameTrashDustCounter);
 		resultText.GetComponent<TextMesh>().text = "結果\n" + _result + "個燃やせました！";
 		StartTextObject(resultText);
 	}
 
-	public void UpdateDustCounter()
+	public void UpdateRealDustCounter()
 	{
-		realTrashDustCounter = DustBox.Instance.RealTrashDustCounter;
-		gUIDustCounter.GetComponent<TextMesh>().text = realTrashDustCounter.ToString();
+		gUIDustCounter.GetComponent<TextMesh>().text = CountManager.Instance.RealTrashDustCounter.ToString();
+	}
+
+	public void UpdateGameDustCounter()
+	{
+		gameTrashDustCounter.GetComponent<TextMesh>().text = CountManager.Instance.GameTrashDustCounter.ToString();
 	}
 
 	private void StartTextObject(GameObject _obj)
