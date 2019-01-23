@@ -17,4 +17,4 @@
 
 
 ### GitPitch
-[説明用スライド（未完成）]()
+[説明用スライド（未完成）](https://gitpitch.com/sukapenpen/DustGame)

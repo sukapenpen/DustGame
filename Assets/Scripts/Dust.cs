@@ -5,7 +5,9 @@ public class Dust : MonoBehaviour
     [SerializeField]
     private AudioClip fallinDustSound;
     [SerializeField]
-    private AudioClip hitDustSound;
+    private AudioClip hitDustBoxSound;
+    [SerializeField]
+    private AudioClip hitIncineratorSound;
     
     private AudioSource audioSource;
     private Vector3 initPosition;
@@ -68,14 +70,14 @@ public class Dust : MonoBehaviour
         {
             if (_object.gameObject.CompareTag("DustBoxBottom"))
             {
-                audioSource.PlayOneShot(hitDustSound);
+                audioSource.PlayOneShot(hitDustBoxSound);
             }
         
             if (_object.gameObject.CompareTag("IncineratorBottom"))
             {
                 if (GameSceneManager.Instance.GetGameState() == GameState.Play)
                 {
-                    audioSource.PlayOneShot(hitDustSound);
+                    audioSource.PlayOneShot(hitIncineratorSound);
                     CountManager.Instance.GameTrashAdd();
                 }
 

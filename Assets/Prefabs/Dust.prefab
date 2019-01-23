@@ -223,4 +223,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallinDustSound: {fileID: 8300000, guid: b546da0a2d31e4579896610685153572, type: 3}
-  hitDustSound: {fileID: 8300000, guid: 04da4c1259d9c4d6e9d474e3773a9e74, type: 3}
+  hitDustBoxSound: {fileID: 8300000, guid: 04da4c1259d9c4d6e9d474e3773a9e74, type: 3}
+  hitIncineratorSound: {fileID: 8300000, guid: 0fdbda13fb26d4b28857d8eea201f81b, type: 3}

@@ -54,6 +54,11 @@ public class CountManager
 		RealTrashDustCounter += 1;
 	}
 	
+	public void RealTrashAdd(int _value)
+	{
+		RealTrashDustCounter += _value;
+	}
+	
 	public void GameTrashAdd()
 	{
 		GameTrashDustCounter += 1;
