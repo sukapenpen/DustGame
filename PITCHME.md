@@ -1,8 +1,7 @@
 # DustGame
-
-<img src="product.JPG" width = 50% height = 50%>
-
 ### NE28-0194G 市川拓巳
+![QRコード](product.JPG)
+
 ---
 
 ## 作品概要
