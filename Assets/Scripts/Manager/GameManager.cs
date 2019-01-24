@@ -3,7 +3,7 @@
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     private float playingTime;
-    private int playingFallingCounter;
+    //private int playingFallingCounter;
     private bool resetFlg;
     
     private void Awake()
@@ -62,6 +62,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         PlayingFallDust();
         TextManager.Instance.PlaySet();
         TextManager.Instance.UpdateGameDustCounter();
+        TextManager.Instance.UpdateTrashedDustNum();
     }
 
     private void ResultAction()
@@ -79,7 +80,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             CountManager.Instance.ResetManager();
             DustManager.Instance.ResetManager();
             playingTime = 0;
-            playingFallingCounter = 0;
             resetFlg = true;
         }
     }
@@ -110,18 +110,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         var _sec = 4;
         
-        if (playingFallingCounter < CountManager.Instance.RealTrashDustCounter)
+        if (CountManager.Instance.PlayingFallingCounter < CountManager.Instance.RealTrashDustCounter)
         {
-            if (playingTime / _sec >= playingFallingCounter)
+            if (playingTime / _sec >= CountManager.Instance.PlayingFallingCounter)
             {
                 DustManager.Instance.AppearPlayingDust();
-                playingFallingCounter += 1;
+                CountManager.Instance.PlayingFallingCounterAdd();
             }
         }
 
-        if (playingFallingCounter == CountManager.Instance.RealTrashDustCounter)
+        if (CountManager.Instance.PlayingFallingCounter == CountManager.Instance.RealTrashDustCounter)
         {
-            if (playingTime / _sec >= playingFallingCounter)
+            if (playingTime / _sec >= CountManager.Instance.PlayingFallingCounter)
             {
                 GameSceneManager.Instance.GoResult();
             }

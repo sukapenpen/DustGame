@@ -33,7 +33,6 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 	public void ResetManager()
 	{
 		HideAllDusts();
-		CreatePosition();
 	}
 
 	private void CreateDust()
@@ -47,14 +46,18 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 
 	private void CreatePosition()
 	{
-		float position = -7.0f;
-		float equalPosition = 14.0f / positionsCount;
+		float xPos = -7.0f;
+		float zPos = -5.0f;
+		float xEqualPos = (xPos * 2) / positionsCount;
+		float zEqualPos = (zPos * 2) / positionsCount;
 		
 		for (int num = 0; num < positionsCount; num += 1)
 		{
-			xPositions[num] = position;
-			zPositions[num] = position;
-			position += equalPosition;
+			Debug.Log(zPos);
+			xPositions[num] = xPos;
+			zPositions[num] = zPos;
+			xPos -= xEqualPos;
+			zPos -= zEqualPos;
 		}
 	}
 
@@ -82,7 +85,7 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		if (CountManager.Instance.RealTrashDustCounter > 0)
 		{
 			GameObject dust = SeachFalseDust();
-			dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y,
+			dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y + 9,
 				zPositions[Random.Range(0, 10)]);
 			dust.SetActive(true);
 		}

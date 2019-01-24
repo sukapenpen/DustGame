@@ -20,6 +20,13 @@ public class CountManager
 		private set { gameTrashDustCounter = value; }
 	}
 	
+	private int playingFallingCounter;
+	public int PlayingFallingCounter
+	{
+		get { return playingFallingCounter;}
+		private set { playingFallingCounter = value; }
+	}
+	
 	public static CountManager Instance
 	{
 		get
@@ -47,6 +54,7 @@ public class CountManager
 	{
 		RealTrashReset();
 		GameTrashDustCounter = 0;
+		PlayingFallingCounter = 0;
 	}
 
 	public void RealTrashAdd()
@@ -54,14 +62,14 @@ public class CountManager
 		RealTrashDustCounter += 1;
 	}
 	
-	public void RealTrashAdd(int _value)
-	{
-		RealTrashDustCounter += _value;
-	}
-	
 	public void GameTrashAdd()
 	{
 		GameTrashDustCounter += 1;
+	}
+	
+	public void PlayingFallingCounterAdd()
+	{
+		PlayingFallingCounter += 1;
 	}
 
 	public void RealTrashReset()

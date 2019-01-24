@@ -16,6 +16,9 @@ TagManager:
   - Incinerator
   - ResetDustButton
   - GameName
+  - GameTrashDustCounter
+  - TrashedDustNum
+  - TheTrashedDustNumIs
   layers:
   - Default
   - TransparentFX

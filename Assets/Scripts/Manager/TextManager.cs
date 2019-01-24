@@ -7,7 +7,10 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	private GameObject gameName;
 	private GameObject startCount;
 	private GameObject gameTrashDustCounter;
+	private GameObject theTrashedDustNumIs;
+	private GameObject trashedDustNum;
 	private GameObject resultText;
+
 
 	//private int realTrashDustCounter;
 	private int gameStartCount;
@@ -21,7 +24,9 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		theNumberOfDusts = GameObject.FindWithTag("TheNumberOfDusts");
 		gameName = GameObject.FindWithTag("GameName");
 		startCount = transform.Find("StartCount").gameObject;
-		gameTrashDustCounter = transform.Find("GameTrashDustCounter").gameObject;
+		gameTrashDustCounter = GameObject.FindWithTag("GameTrashDustCounter").gameObject;
+		theTrashedDustNumIs = GameObject.FindWithTag("TheTrashedDustNumIs").gameObject;
+		trashedDustNum = GameObject.FindWithTag("TrashedDustNum").gameObject;
 		resultText = transform.Find("ResultText").gameObject;
 	}
 
@@ -38,6 +43,8 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		StartTextObject(gameName);
 		StopTextObject(startCount);
 		StopTextObject(gameTrashDustCounter);
+		StopTextObject(theTrashedDustNumIs);
+		StopTextObject(trashedDustNum);
 		StopTextObject(resultText);
 	}
 
@@ -48,12 +55,17 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 		StopTextObject(gameName);
 		StartTextObject(startCount);
 		StartTextObject(gameTrashDustCounter);
+		StartTextObject(theTrashedDustNumIs);
+		StartTextObject(trashedDustNum);
+		UpdateTrashedDustNum();
 	}
 
 	public void PlaySet()
 	{
 		StopTextObject(startCount);
 		StartTextObject(gameTrashDustCounter);
+		StartTextObject(theTrashedDustNumIs);
+		StartTextObject(trashedDustNum);
 	}
 
 	public void ResultSet()
@@ -73,6 +85,13 @@ public class TextManager : SingletonMonoBehaviour<TextManager>
 	{
 		gameTrashDustCounter.GetComponent<TextMesh>().text = CountManager.Instance.GameTrashDustCounter.ToString();
 	}
+
+	public void UpdateTrashedDustNum()
+	{
+		var dustDifference = CountManager.Instance.RealTrashDustCounter - CountManager.Instance.PlayingFallingCounter;
+		trashedDustNum.GetComponent<TextMesh>().text = dustDifference.ToString();
+	}
+
 
 	private void StartTextObject(GameObject _obj)
 	{
