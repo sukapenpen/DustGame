@@ -31,4 +31,5 @@
 ---
 
 ## 終わり
-![QRコード](https://drive.google.com/open?id=1e7zdV0TxJEkqU3-dtZj2oCm8EKt2R2TW)
+![QRコード](QRCode.jpg)  
+githubにゲームのリポジトリがあるのでぜひ！！！
