@@ -18,17 +18,23 @@ public class Dust : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         initPosition = transform.position;
+        ResetObject();
     }
 
     private void OnEnable()
     {
-        ResetObject();
+        audioSource.PlayOneShot(fallinDustSound);
     }
 
     private void Update()
     {
         CountTrueTime();
         DeleteDust();
+    }
+    
+    private void OnDisable()
+    {
+        ResetObject();
     }
 
     private void CountTrueTime()
@@ -50,9 +56,9 @@ public class Dust : MonoBehaviour
     private void ResetObject()
     {
         firstHit = false;
+        transform.position = initPosition;
         dustStayTimeCount = 0.0f;
         gameObject.layer = LayerMask.NameToLayer("AliveDust");
-        audioSource.PlayOneShot(fallinDustSound);
     }
 
     private void OnCollisionEnter(Collision _object)
@@ -85,11 +91,6 @@ public class Dust : MonoBehaviour
         }
         
         firstHit = true;
-    }
-
-    private void OnDisable()
-    {
-        transform.position = initPosition;
     }
 
 }

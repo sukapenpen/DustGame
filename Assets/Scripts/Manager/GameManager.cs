@@ -53,6 +53,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         TextManager.Instance.LoadSet();
         ButtonManager.Instance.LoadSet();
         PlayerManager.Instance.LoadSet();
+        DustManager.Instance.LoadSet();
     }
 
     private void PlayAction()
@@ -76,6 +77,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             DustManager.Instance.ResetManager();
             TextManager.Instance.ResetManager();
             CountManager.Instance.ResetManager();
+            DustManager.Instance.ResetManager();
             playingTime = 0;
             playingFallingCounter = 0;
             resetFlg = true;

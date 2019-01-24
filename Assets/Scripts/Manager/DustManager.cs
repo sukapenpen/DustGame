@@ -22,11 +22,18 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 		CreateDust();
 		xPositions = new float[positionsCount];
 		zPositions = new float[positionsCount];
-		CreatePosition();	
+		CreatePosition();
+	}
+
+	public void LoadSet()
+	{
+		HideAllDusts();
 	}
 
 	public void ResetManager()
 	{
+		HideAllDusts();
+		CreatePosition();
 	}
 
 	private void CreateDust()
@@ -78,6 +85,14 @@ public sealed class DustManager : SingletonMonoBehaviour<DustManager>
 			dust.transform.position = new Vector3(xPositions[Random.Range(0, 10)], dust.transform.position.y,
 				zPositions[Random.Range(0, 10)]);
 			dust.SetActive(true);
+		}
+	}
+
+	private void HideAllDusts()
+	{
+		for (int num = 0; num < dusts.Length; num += 1)
+		{
+			dusts[num].SetActive(false);
 		}
 	}
 

@@ -16,9 +16,10 @@ public class ButtonManager : SingletonMonoBehaviour<ButtonManager>
 
     public void TitleSet()
     {
-        StartButtonObject(startButton);
-        StartButtonObject(resetDustButton);
+        StopButtonObject(startButton);
+        StopButtonObject(resetDustButton);
         StopButtonObject(returnTitleButton);
+        AppearStartSceneButton();
     }
 
     public void LoadSet()
@@ -35,6 +36,15 @@ public class ButtonManager : SingletonMonoBehaviour<ButtonManager>
     public void ResultSet()
     {
         StartButtonObject(returnTitleButton);
+    }
+
+    private void AppearStartSceneButton()
+    {
+        if (CountManager.Instance.RealTrashDustCounter > 0)
+        {
+            StartButtonObject(startButton);
+            StartButtonObject(resetDustButton);
+        }
     }
     
     private void StartButtonObject(GameObject _obj)

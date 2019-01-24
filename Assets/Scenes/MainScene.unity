@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 375369077}
   - component: {fileID: 375369079}
   - component: {fileID: 375369078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5468,7 +5468,7 @@ GameObject:
   - component: {fileID: 473368117}
   - component: {fileID: 473368116}
   - component: {fileID: 473368115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigSide2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5807,7 +5807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842592941}
   - component: {fileID: 842592942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Incinerator
   m_TagString: Incinerator
   m_Icon: {fileID: 0}
@@ -6335,7 +6335,7 @@ GameObject:
   - component: {fileID: 1039156556}
   - component: {fileID: 1039156555}
   - component: {fileID: 1039156554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallSide2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6555,7 +6555,7 @@ GameObject:
   - component: {fileID: 1124425150}
   - component: {fileID: 1124425149}
   - component: {fileID: 1124425148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallSide1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6981,7 +6981,7 @@ GameObject:
   - component: {fileID: 1526855937}
   - component: {fileID: 1526855936}
   - component: {fileID: 1526855935}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bottom
   m_TagString: IncineratorBottom
   m_Icon: {fileID: 0}
@@ -7198,7 +7198,7 @@ GameObject:
   - component: {fileID: 1786637629}
   - component: {fileID: 1786637628}
   - component: {fileID: 1786637627}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigSide1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
